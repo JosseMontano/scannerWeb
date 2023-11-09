@@ -15,7 +15,7 @@ def main():
             wordlist = open('subdominios.txt', 'r')
             wordlist = wordlist.read().split('\n') #leer por saltos de linea (ahora es una lista)
 
-         
+            urlList = []
 
             for i in wordlist:
                 url = "https://"+i+"."+parser.target
@@ -25,6 +25,9 @@ def main():
                         pass 
                 else:
                     print("(+) subdominio encontrado: " + url)
+                    urlList.append(url)
+            
+            print(urlList)
 
     else:
          print("(+) Ingresa un dominio")
