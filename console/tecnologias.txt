@@ -1,0 +1,19 @@
+{
+    "http://marcianoquantico.pythonanywhere.com/": [
+        {
+            "app": "Python",
+            "ver": null,
+            "type": "Programming Languages"
+        },
+        {
+            "app": "Font Awesome",
+            "ver": null,
+            "type": "Font Scripts"
+        },
+        {
+            "app": "Google Font API",
+            "ver": null,
+            "type": "Font Scripts"
+        }
+    ]
+}

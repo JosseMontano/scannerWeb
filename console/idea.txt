@@ -1,0 +1,17 @@
+Mi objetivo es desarollar una scanner web con python que sirva como apoyo
+para las personas que se dedican a desarrollar aplicaciones web.
+¿Por que? hago esto debido a que muchos programadores crean aplicaciones sin tener en cuenta
+la seguridad, es por eso el objetivo de esta app, se busca que sea util para
+personas que no tengan conocimientos en seguridad informatica.
+
+Como se esta desarrollando esta app?
+Para el desarrollo de esta se busca hacer Pentesting (Ataque simulado contra un sistema informatico para 
+encontrar vulnerabildiades).
+Entre las tareas se tendra:
+
+    1. Reconocimiento: Rocipilar info
+    2. Escaneo: Escanear puertos y vulnerabildiades
+    3. Explotacion : Fuerza bruta
+    4. Mantener acceso: Backdoor
+    5. Borrado de huellas
+
