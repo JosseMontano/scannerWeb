@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from controllers.subdominio import get_subdomines
 from controllers.technologies import technologies
-
+from controllers.bannerGrabing import bannerGrabing
 app = Flask(__name__)
 
 # Datos de ejemplo (podrías usar una base de datos en lugar de esto)
@@ -15,17 +15,24 @@ data = [
 
 # Ruta para el método GET
 @app.route('/api/subdomine/<string:domine>', methods=['GET'])
-def getSubdomines(domine):
+def GetSubdomines(domine):
     resFunction =  get_subdomines(domine)
     msg, data = resFunction
     return jsonify({"message": msg, "data": data})
 
 
 @app.route('/api/technologies/<string:url>', methods=['GET'])
-def get_technologies(url):
+def GetTechnologies(url):
     resFunction =  technologies(url)
     msg, data = resFunction
     return jsonify({"message": msg, "data": data})
+
+@app.route('/api/bannerGrabing/<string:ip>', methods=['GET'])
+def BannerGrabing(ip):
+    resFunction =  bannerGrabing(ip)
+    print(resFunction)
+    return jsonify({"message": resFunction})
+
 
 # Ruta para el método POST
 @app.route('/api/resource', methods=['POST'])
