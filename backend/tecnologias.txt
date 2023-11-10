@@ -1,0 +1,74 @@
+{
+    "https://unifranz.edu.bo/": [
+        {
+            "app": "Nginx",
+            "ver": "1.23.4",
+            "type": "Web Servers,Reverse Proxy"
+        },
+        {
+            "app": "WordPress",
+            "ver": null,
+            "type": "CMS,Blogs"
+        },
+        {
+            "app": "jQuery",
+            "ver": "1.12.4",
+            "type": "JavaScript Libraries"
+        },
+        {
+            "app": "jQuery",
+            "ver": "5.0.20",
+            "type": "JavaScript Libraries"
+        },
+        {
+            "app": "Crazy Egg",
+            "ver": null,
+            "type": "Analytics"
+        },
+        {
+            "app": "jQuery",
+            "ver": "4.2.1",
+            "type": "JavaScript Libraries"
+        },
+        {
+            "app": "jQuery",
+            "ver": "1.11.4",
+            "type": "JavaScript Libraries"
+        },
+        {
+            "app": "Bootstrap",
+            "ver": null,
+            "type": "UI Frameworks"
+        },
+        {
+            "app": "Google Font API",
+            "ver": null,
+            "type": "Font Scripts"
+        },
+        {
+            "app": "Google Tag Manager",
+            "ver": null,
+            "type": "Tag Managers"
+        },
+        {
+            "app": "Yoast SEO",
+            "ver": "7.6.1",
+            "type": "SEO"
+        },
+        {
+            "app": "YouTube",
+            "ver": null,
+            "type": "Video Players"
+        },
+        {
+            "app": "MySQL",
+            "ver": null,
+            "type": "Databases"
+        },
+        {
+            "app": "PHP",
+            "ver": null,
+            "type": "Programming Languages"
+        }
+    ]
+}

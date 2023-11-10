@@ -1,10 +1,8 @@
 import requests #realziar consultas y peticiones a una app web
-from os import path  #determinar si una ruta existe 
 import os
-from flask import render_template, url_for
+
 
 def get_subdomines(domine):
-    
     if domine:
         #start save subdomines in an array
         subdomines = []
@@ -14,6 +12,7 @@ def get_subdomines(domine):
             for line in file.readlines():
                 subdomines.append(line.split('\n'))
 
+      
         datos_limpios = [elemento[0].strip() for elemento in subdomines]
         #end save subdomines in an array
 
