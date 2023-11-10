@@ -1,47 +1,72 @@
 <script lang="ts">
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+  //amplía el alcance de la evaluación de seguridad
+  import Card from "./components/card.svelte";
+  // ======== IMG ========
+  import SubdominesImg from "./assets/subdomines.png";
+  import ServerImg from "./assets/server.jpg";
+  import TechnologiesImg from "./assets/technologies.jpg";
+  import ScannerPortImg from "./assets/scannerPorts.jpg";
+  import NmapImg from "./assets/nmap.jpg";
+  import type { cardsType } from "./types/cards";
+
+  const cards: cardsType[] = [
+    {
+      img: SubdominesImg,
+      title: "Identificar subdominios",
+      description: `Es clave en la fase inicial de un pentesting,
+       porque aumenta las oportunidades para descubrir vulnerabilidades.`,
+    },
+    {
+      img: ServerImg,
+      title: "Banner Grabbing",
+      description:
+        "Exponen detalles sobre software y sistemas operativos, facilitando a los actores de amenazas encontrar vulnerabilidades.",
+    },
+    {
+      img: TechnologiesImg,
+      title: "Herramientas",
+      description:
+        "Comprendiendo las tecnologías y las herramientas, los hackers desarrollan ataques específicos para aprovechar debilidades conocidas.",
+    },
+    {
+      img: ScannerPortImg,
+      title: "Puertos abiertos",
+      description:
+        "Cada servicio en un sistema utiliza un puerto específico. Conocer los puertos abiertos indica los servicios en ejecución (servicios susceptibles a explotación).",
+    },
+    {
+      img: NmapImg,
+      title: "Escanear vulnerabilidades",
+      description:
+        "Detectar y corregir vulnerabilidades en los puertos es crucial para fortalecer la seguridad y prevenir ataques.",
+    },
+  ];
 </script>
 
 <main>
   <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
+    <h1 class="title">Escaner Web</h1>
+
+    <div class="container_card">
+      {#each cards as v}
+        <Card {v} />
+      {/each}
+    </div>
   </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
 </main>
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+  .title {
+    font-size: 32px;
+    text-align: center;
+    text-transform: uppercase;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
+
+  .container_card {
+    display: grid;
+    grid-gap: 20px;
+    justify-content: center;
+    grid-template-columns: repeat(3, 320px);
+    margin-bottom: 10px;
   }
 </style>

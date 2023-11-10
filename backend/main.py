@@ -4,17 +4,7 @@ from controllers.technologies import technologies
 from controllers.bannerGrabing import bannerGrabing
 from controllers.scannerPorts import scannerPorts
 
-
 app = Flask(__name__)
-
-# Datos de ejemplo (podrías usar una base de datos en lugar de esto)
-data = [
-    {
-        "a":"xd",
-    },{
-        "a":"xd2"
-    }
-]
 
 # Ruta para el método GET
 @app.route('/api/subdomine/<string:domine>', methods=['GET'])
