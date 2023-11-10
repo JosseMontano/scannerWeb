@@ -15,6 +15,7 @@
   import SubdomineContent from "./components/contentModal/subdomines.svelte";
   import BannerContent from "./components/contentModal/banner.svelte";
   import TechnologiesContent from "./components/contentModal/technologies.svelte";
+  import ScannerPortsContent from "./components/contentModal/scannerPort.svelte";
 
   // ======== DATA CARDS ========
   const cards: cardsType[] = [
@@ -61,6 +62,7 @@
     if (v == "Identificar subdominios") contentModal = SubdomineContent;
     if (v == "Banner Grabbing") contentModal = BannerContent;
     if (v == "Herramientas") contentModal = TechnologiesContent;
+    if (v == "Puertos abiertos") contentModal = ScannerPortsContent;
   }
 </script>
 
