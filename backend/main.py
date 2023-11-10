@@ -2,6 +2,9 @@ from flask import Flask, request, jsonify
 from controllers.subdominio import get_subdomines
 from controllers.technologies import technologies
 from controllers.bannerGrabing import bannerGrabing
+from controllers.scannerPorts import scannerPorts
+
+
 app = Flask(__name__)
 
 # Datos de ejemplo (podrías usar una base de datos en lugar de esto)
@@ -30,16 +33,18 @@ def GetTechnologies(url):
 @app.route('/api/bannerGrabing/<string:ip>', methods=['GET'])
 def BannerGrabing(ip):
     resFunction =  bannerGrabing(ip)
-    print(resFunction)
     return jsonify({"message": resFunction})
 
-
-# Ruta para el método POST
-@app.route('/api/resource', methods=['POST'])
-def add_resource():
+@app.route('/api/scannerPorts', methods=['POST'])
+def ScannerPorts():
     new_resource = request.get_json()
-    data.append(new_resource)
-    return jsonify({"message": "Recurso agregado con éxito"})
+    ip = new_resource["ip"]
+    portStart = new_resource["portStart"]
+    portEnd = new_resource["portEnd"]
+  
+    msg, data =  scannerPorts(ip, portStart, portEnd)
+    return jsonify({"message": msg, "data": data})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
