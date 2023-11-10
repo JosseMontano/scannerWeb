@@ -1,12 +1,24 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from controllers.subdominio import get_subdomines
 from controllers.technologies import technologies
 from controllers.bannerGrabing import bannerGrabing
 from controllers.scannerPorts import scannerPorts
 
+
 app = Flask(__name__)
 
+CORS(app, resources={
+     "*": {"origins": ["http://localhost:5173", "exp://192.168.1.13:19000"]}})
+
+
 # Ruta para el método GET
+
+@app.route('/api/hello', methods=['GET'])
+def hello():
+    return jsonify({"message": "hello"})
+
+
 @app.route('/api/subdomine/<string:domine>', methods=['GET'])
 def GetSubdomines(domine):
     resFunction =  get_subdomines(domine)

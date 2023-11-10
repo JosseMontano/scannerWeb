@@ -1,14 +1,21 @@
 <script lang="ts">
   //amplía el alcance de la evaluación de seguridad
-  import Card from "./components/card.svelte";
+
   // ======== IMG ========
   import SubdominesImg from "./assets/subdomines.png";
   import ServerImg from "./assets/server.jpg";
   import TechnologiesImg from "./assets/technologies.jpg";
   import ScannerPortImg from "./assets/scannerPorts.jpg";
   import NmapImg from "./assets/nmap.jpg";
-  import type { cardsType } from "./types/cards";
+  import type { cardsType, titleCards } from "./types/cards";
 
+  // ======== COMPONENTS ========
+  import Card from "./components/card.svelte";
+  import Modal from "./global/modals.svelte";
+  import SubdomineContent from "./components/contentModal/subdomines.svelte";
+  import BannerContent from "./components/contentModal/banner.svelte";
+
+  // ======== DATA CARDS ========
   const cards: cardsType[] = [
     {
       img: SubdominesImg,
@@ -41,17 +48,29 @@
         "Detectar y corregir vulnerabilidades en los puertos es crucial para fortalecer la seguridad y prevenir ataques.",
     },
   ];
+
+  // ======== MODAL ========
+
+  let modalVisible = false;
+  let contentModal;
+
+  function toggleModal(v?: titleCards) {
+    modalVisible = !modalVisible;
+    //save the children in a variable to the modal
+    if (v == "Identificar subdominios") contentModal = SubdomineContent;
+    if (v == "Banner Grabbing") contentModal = BannerContent;
+  }
 </script>
 
 <main>
   <div>
     <h1 class="title">Escaner Web</h1>
-
     <div class="container_card">
       {#each cards as v}
-        <Card {v} />
+        <Card {v} {toggleModal} />
       {/each}
     </div>
+    <Modal {modalVisible} {toggleModal} children={contentModal} />
   </div>
 </main>
 

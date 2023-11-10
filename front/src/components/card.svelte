@@ -1,8 +1,8 @@
 <script lang="ts">
-  import SubdominesImg from "../assets/subdomines.png";
-  import type { cardsType } from "../types/cards";
+  import type { cardsType, titleCards } from "../types/cards";
 
   export let v: cardsType;
+  export let toggleModal: (v: titleCards) => void;
 </script>
 
 <div class="card">
@@ -13,7 +13,7 @@
   <p class="card_description">
     {v.description}
   </p>
-  <button class="btn">Probar</button>
+  <button class="btn" on:click={()=>toggleModal(v.title)}>Probar</button>
 </div>
 
 <style>
@@ -54,18 +54,5 @@
     max-height: 120px;
     color: #242424;
     font-weight: 500;
-  }
-
-  .btn {
-    border: none;
-    background-color: #4974a7;
-    color: #242424;
-    padding: 7px;
-    border-radius: 14px;
-    width: 140px;
-    align-self: flex-end;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
   }
 </style>

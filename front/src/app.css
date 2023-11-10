@@ -9,3 +9,16 @@
 body {
   background-color: #242424;
 }
+
+.btn {
+  border: none;
+  background-color: #4974a7;
+  color: #f2f2f2 !important;
+  padding: 7px;
+  border-radius: 14px;
+  width: 140px;
+  align-self: flex-end;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}

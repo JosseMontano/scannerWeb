@@ -1,5 +1,12 @@
+export type titleCards =
+| "Identificar subdominios"
+| "Banner Grabbing"
+| "Herramientas"
+| "Puertos abiertos"
+| "Escanear vulnerabilidades";
+
 export interface cardsType {
     img: string;
-    title: string;
+    title: titleCards;
     description: string;
   }
