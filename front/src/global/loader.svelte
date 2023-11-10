@@ -1,8 +1,15 @@
 <div>
-  <div class="loader" />
+  <div class="container_loader">
+    <div class="loader" />
+  </div>
 </div>
 
 <style>
+
+.container_loader {
+    display: flex;
+    justify-content: center;
+  }
   .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
@@ -12,7 +19,6 @@
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
   }
-
 
   @keyframes spin {
     0% {

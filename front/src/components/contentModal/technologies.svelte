@@ -3,19 +3,18 @@
   import Loader from "../../global/loader.svelte";
   import { fetchData } from "../../utilities/fetch";
 
-  let version = "";
-  let loading = false;
-  let ipInput = "";
-
+  let urlInput = "";
   function handleChange(event: Event) {
     const target = event.target as HTMLSelectElement;
-    ipInput = target.value;
+    urlInput = target.value;
   }
 
-  const handleGetVersion = async () => {
+  let tecnolgoies: string[] = [];
+  let loading = false;
+  const handleGetTechnologies = async () => {
     loading = true;
-    const res = await fetchData("bannerGrabing/" + ipInput);
-    version = res.message;
+    const res = await fetchData("technologies/" + urlInput);
+    tecnolgoies = res.data;
     loading = false;
   };
 </script>
@@ -23,20 +22,22 @@
 <div>
   <Form
     {handleChange}
-    btnTxt={"Obtener informacion"}
-    title={"Ip"}
-    handleGetSubdomines={handleGetVersion}
-    subdomineInput={ipInput}
-    example={"192.168.1.9"}
+    btnTxt={"Buscar las tecnologias"}
+    title={"Url"}
+    handleGetSubdomines={handleGetTechnologies}
+    subdomineInput={urlInput}
+    example={"unifranz.edu.bo"}
   />
 
   {#if loading}
     <Loader />
   {/if}
 
-  {#if version != "" && !loading}
+  {#if tecnolgoies.length > 0 && !loading}
     <div class="container_btn">
-      <a class="button_url" target="_blank" href="/">{version}</a>
+      {#each tecnolgoies as v}
+        <p class="button_url">{v}</p>
+      {/each}
     </div>
   {/if}
 </div>
@@ -47,6 +48,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    overflow-y: scroll;
+    height: 130px;
   }
 
   .button_url {
@@ -59,12 +62,9 @@
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    cursor: pointer;
     transition-duration: 0.4s;
     border-radius: 12px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
       0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    overflow-y: auto;
-    max-height: 140px;
   }
 </style>

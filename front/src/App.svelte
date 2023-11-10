@@ -14,6 +14,7 @@
   import Modal from "./global/modals.svelte";
   import SubdomineContent from "./components/contentModal/subdomines.svelte";
   import BannerContent from "./components/contentModal/banner.svelte";
+  import TechnologiesContent from "./components/contentModal/technologies.svelte";
 
   // ======== DATA CARDS ========
   const cards: cardsType[] = [
@@ -59,6 +60,7 @@
     //save the children in a variable to the modal
     if (v == "Identificar subdominios") contentModal = SubdomineContent;
     if (v == "Banner Grabbing") contentModal = BannerContent;
+    if (v == "Herramientas") contentModal = TechnologiesContent;
   }
 </script>
 

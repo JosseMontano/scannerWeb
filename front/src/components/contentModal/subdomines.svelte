@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Form from "../../global/form.svelte";
   import Loader from "../../global/loader.svelte";
   import { fetchData } from "../../utilities/fetch";
 
@@ -13,69 +14,38 @@
 
   const handleGetSubdomines = async () => {
     loading = true;
-    const res = await fetchData("subdomine/unifranz.edu.bo");
+    const res = await fetchData("subdomine/" + subdomineInput);
     subdominesData = res.data;
     loading = false;
   };
 </script>
 
 <div>
-  <div class="container_header">
-    <label for="">Subdominio: </label>
-    <input
-      placeholder="unifranz.edu.bo"
-      bind:value={subdomineInput}
-      on:input={(e) => handleChange(e)}
-    />
-    <button class="btn" on:click={handleGetSubdomines}
-      >Encontrar subdominios</button
-    >
-  </div>
+  <Form
+    {handleChange}
+    btnTxt={"Encontrar subdominios"}
+    title={"Dominio"}
+    {handleGetSubdomines}
+    {subdomineInput}
+    example={"unifranz.edu.bo"}
+  />
 
   {#if loading}
-    <div class="container_loader">
-      <Loader />
-    </div>
+    <Loader />
   {/if}
 
-  <div class="container_btn">
-    {#each subdominesData as v}
-      <a class="button_url" target="_blank" href={v}>{v}</a>
-    {/each}
-  </div>
+  {#if subdominesData.length > 0}
+    <div class="container_btn">
+      {#each subdominesData as v}
+        <a class="button_url" target="_blank" href={v}>{v}</a>
+      {/each}
+    </div>
+  {/if}
 </div>
 
 <style>
   * {
     color: #242424;
-  }
-
-  .container_header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-
-  .container_loader {
-    display: flex;
-    justify-content: center;
-  }
-
-  .container_header label {
-    font-weight: bold;
-    font-size: 18px;
-  }
-
-  input {
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
   }
 
   .container_btn {
