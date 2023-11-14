@@ -2,11 +2,11 @@ import { config } from "../config";
 
 export async function fetchData(url: string) {
   try {
-    const response = await fetch(config.endpoint + url);
+    const response = await fetch(config.endpoint + url); //Se llama a la url
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    const data = await response.json();
+    const data = await response.json(); //se obtiene el json
     return data;
   } catch (error) {
     console.error("Error fetching data:", error.message);

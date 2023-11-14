@@ -1,10 +1,9 @@
-import requests #realziar consultas y peticiones a una app web
-import os
-
+import requests #realizar consultas y peticiones a una app web
+import os #obtener informacion de un archivo
 
 def get_subdomines(domine):
     if domine:
-        #start save subdomines in an array
+        #guardar los subdominios en un array
         subdomines = []
         basedir = os.path.abspath(os.path.dirname(__file__))
         prop_file = os.path.join(basedir, 'static/subdominios.txt')
@@ -12,12 +11,11 @@ def get_subdomines(domine):
             for line in file.readlines():
                 subdomines.append(line.split('\n'))
 
-      
+        #limpiar la cadena de texto para que este de forma entendible
         datos_limpios = [elemento[0].strip() for elemento in subdomines]
-        #end save subdomines in an array
 
+        #guardar en el vector urlList las urls que si existan
         urlList = []
-
         for i in datos_limpios:
             url = "https://"+i+"."+domine
             try:

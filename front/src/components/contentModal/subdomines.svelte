@@ -9,18 +9,19 @@
 
   function handleChange(event: Event) {
     const target = event.target as HTMLSelectElement;
-    subdomineInput = target.value;
+    subdomineInput = target.value; //guardar el valor digitado en el input
   }
 
   const handleGetSubdomines = async () => {
     loading = true;
-    const res = await fetchData("subdomine/" + subdomineInput);
-    subdominesData = res.data;
+    const res = await fetchData("subdomine/" + subdomineInput); //obtener el dato que devuelve el servidor
+    subdominesData = res.data; //guardar en un vector el valor
     loading = false;
   };
 </script>
 
 <div>
+  <!-- Mostrar el formulario -->
   <Form
     {handleChange}
     btnTxt={"Encontrar subdominios"}
@@ -30,11 +31,12 @@
     example={"unifranz.edu.bo"}
   />
 
+  <!-- SI LA PETICION ESTA CARGANDO QUE MUESTE UN CARGANDO -->
   {#if loading}
     <Loader />
   {/if}
-
-  {#if subdominesData.length > 0}
+  <!-- Mostrar los datos del vector -->
+  {#if subdominesData.length > 0 && !loading}
     <div class="container_btn">
       {#each subdominesData as v}
         <a class="button_url" target="_blank" href={v}>{v}</a>
@@ -43,6 +45,7 @@
   {/if}
 </div>
 
+<!-- ESTILOS CSS -->
 <style>
   * {
     color: #242424;
