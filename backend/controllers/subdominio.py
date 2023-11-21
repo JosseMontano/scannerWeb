@@ -5,8 +5,8 @@ def get_subdomines(domine):
     if domine:
         #guardar los subdominios en un array
         subdomines = []
-        basedir = os.path.abspath(os.path.dirname(__file__))
-        prop_file = os.path.join(basedir, 'static/subdominios.txt')
+        basedir = os.path.abspath(os.path.dirname(__file__)) # Obtiene el directorio absoluto del archivo actual.
+        prop_file = os.path.join(basedir, 'static/subdominios.txt') # Construye la ruta completa al archivo "subdominios.txt" utilizando el directorio base obtenido en la línea anterior.
         with open(prop_file, "r") as file:
             for line in file.readlines():
                 subdomines.append(line.split('\n'))

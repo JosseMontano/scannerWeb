@@ -5,7 +5,6 @@ from controllers.technologies import technologies
 from controllers.bannerGrabing import bannerGrabing
 from controllers.scannerPorts import scannerPorts
 
-
 app = Flask(__name__)
 
 #indicar dominios permitidos
