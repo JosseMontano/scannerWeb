@@ -3,7 +3,7 @@ import socket
 from datetime import datetime
 
 def main():
-    target="10.0.0.247"
+    target="199.231.166.226"
     print("-"*40)
     print("La ip es: " + target )
 

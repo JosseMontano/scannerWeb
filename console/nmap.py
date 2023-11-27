@@ -1,39 +1,40 @@
-# herramientas automatizadas
-
-# ennumerar puertos, determinar las versionas, buscara si hay una vulnerabilidad
-
-import os 
-import sys 
+import sys
 import subprocess
 
+import openai
+
+openai.api_key = "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"
+
+
 def parser(nmap_query, ip):
-    """  print("-"*50)
-    print(ip)
-    results = os.system(nmap_query)
-    print("-"*50)
-    print(results)
-    print("-"*50)
-    with open('readme.txt', 'w') as f:
-        f.write(nmap_query) """
-   
     print("-" * 50)
     print(ip)
-    
+
     # Ejecuta el comando y captura la salida
     result = subprocess.run(nmap_query, shell=True, stdout=subprocess.PIPE, text=True)
     output = result.stdout
-    
-    print("-" * 50)
-    print(output)
-    print("-" * 50)
 
-    with open('readme2.txt', 'w') as f:
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo-16k",
+        messages=[
+            {
+                "role": "user",
+                "content": "Hola!, estoy utilizando nmap para escanear servidores, dime una explicacion simplificada de los resultados "
+                + output,
+            }
+        ],
+    )
+
+    print(response.choices[0].message.content)
+
+    with open("readme3.txt", "w") as f:
         f.write(output)
 
 
 def main():
-    target="199.250.215.182"
-    mode = " --top-ports 100 --script vuln -sV"
+    # nmap -sV --script nmap-vulners <IP> -p22,80,3306
+    target = "200.80.43.108"
+    mode = " --top-ports 100 --script vuln -sV"  #
     consulta = "nmap " + target + mode
     parser(consulta, target)
 
@@ -41,7 +42,5 @@ def main():
 if __name__ == "__main__":
     try:
         main()
-    except KeyboardInterrupt: 
+    except KeyboardInterrupt:
         sys.exit()
-
-        
