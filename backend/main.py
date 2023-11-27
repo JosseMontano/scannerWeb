@@ -4,7 +4,8 @@ from controllers.subdominio import get_subdomines # llamar a la funcion
 from controllers.technologies import technologies
 from controllers.bannerGrabing import bannerGrabing
 from controllers.scannerPorts import scannerPorts
-
+from controllers.bruteForce import bruteForce
+import csv
 app = Flask(__name__)
 
 #indicar dominios permitidos
@@ -45,6 +46,54 @@ def ScannerPorts():
   
     msg, data =  scannerPorts(ip, portStart, portEnd)
     return jsonify({"message": msg, "data": data})
+
+
+
+
+
+@app.route('/bruteForce', methods=['POST'])
+def BruteForce():
+    datos_vector = []
+    if 'archivo' not in request.files:
+        return jsonify({'error': 'No se proporcionó ningún archivo'}), 400
+
+    archivo = request.files['archivo']
+
+    if archivo.filename == '':
+        return jsonify({'error': 'Nombre de archivo no válido'}), 400
+
+    if archivo and allowed_file(archivo.filename):
+        # Leer el archivo CSV y almacenar los datos en el vector
+        try:
+            datos = leer_csv(archivo)
+            datos_vector.extend(datos)
+            
+
+            msg = bruteForce(datos)
+
+      
+
+            return jsonify({'mensaje': msg}), 200
+        
+
+
+        except Exception as e:
+            return jsonify({'error': f'Error al leer el archivo: {str(e)}'}), 500
+    else:
+        return jsonify({'error': 'Formato de archivo no permitido'}), 400
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() == 'csv'
+
+def leer_csv(archivo):
+    datos = []
+    contenido = archivo.read().decode('utf-8').splitlines()
+    
+    lector_csv = csv.reader(contenido)
+    for fila in lector_csv:
+        datos.append(fila)
+    
+    return datos
 
 #Correr la aplciacion
 if __name__ == '__main__':
