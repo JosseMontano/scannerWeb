@@ -21,8 +21,6 @@ def sha256(palabra_encriptada, lista, user):
             print("Contraseña para " + user +": es: " + i )
             listaPasswordFound.append("Contraseña para " + user +": es: " + i )
 
-
-
     return listaPasswordFound
 
 
@@ -34,8 +32,6 @@ def sha512(palabra_encriptada, lista, user):
         if palabra_encriptada == encrypted:
             print("Contraseña para " + user +": es: " + i )
             listaPasswordFound.append("Contraseña para " + user +": es: " + i )
-
-
 
     return listaPasswordFound
 
@@ -62,7 +58,6 @@ def bruteForce(datos):
             if(msg != []):
                 msgReturn.append(msg)
             
-    
         elif len(password) == 64:
             msg = sha256(password, lista, fila[1])
             if(msg != []):
@@ -73,12 +68,9 @@ def bruteForce(datos):
             if(msg != []):
                 msgReturn.append(msg)
 
-
         else:
             msgReturn.append("no se tiene ese metodo de hashing")
 
 
     return msgReturn
-
-   
 
