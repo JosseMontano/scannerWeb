@@ -1,44 +1,74 @@
 {
-    "https://unifranz.edu.bo/": [
+    "https://www.eccouncil.org/": [
         {
-            "app": "Nginx",
-            "ver": "1.23.4",
-            "type": "Web Servers,Reverse Proxy"
+            "app": "CloudFlare",
+            "ver": null,
+            "type": "CDN"
         },
         {
             "app": "WordPress",
-            "ver": null,
+            "ver": "6.3.1",
             "type": "CMS,Blogs"
         },
         {
-            "app": "jQuery",
-            "ver": "1.12.4",
-            "type": "JavaScript Libraries"
-        },
-        {
-            "app": "jQuery",
-            "ver": "5.0.20",
-            "type": "JavaScript Libraries"
-        },
-        {
-            "app": "Crazy Egg",
+            "app": "Kinsta",
             "ver": null,
-            "type": "Analytics"
+            "type": "PaaS"
         },
         {
             "app": "jQuery",
-            "ver": "4.2.1",
+            "ver": "3.7.0",
             "type": "JavaScript Libraries"
         },
         {
             "app": "jQuery",
-            "ver": "1.11.4",
+            "ver": "3.4.1",
+            "type": "JavaScript Libraries"
+        },
+        {
+            "app": "jQuery Migrate",
+            "ver": "\\2",
             "type": "JavaScript Libraries"
         },
         {
             "app": "Bootstrap",
             "ver": null,
             "type": "UI Frameworks"
+        },
+        {
+            "app": "reCAPTCHA",
+            "ver": null,
+            "type": "Captchas"
+        },
+        {
+            "app": "jQuery",
+            "ver": "11.9.3",
+            "type": "JavaScript Libraries"
+        },
+        {
+            "app": "Gravity Forms",
+            "ver": "2.7.17",
+            "type": "Miscellaneous"
+        },
+        {
+            "app": "jQuery",
+            "ver": "2.7.17",
+            "type": "JavaScript Libraries"
+        },
+        {
+            "app": "jQuery",
+            "ver": "1.5",
+            "type": "JavaScript Libraries"
+        },
+        {
+            "app": "Elementor",
+            "ver": "3.17.3",
+            "type": "Landing Page Builders"
+        },
+        {
+            "app": "jQuery",
+            "ver": "1.13.2",
+            "type": "JavaScript Libraries"
         },
         {
             "app": "Google Font API",
@@ -51,24 +81,29 @@
             "type": "Tag Managers"
         },
         {
-            "app": "Yoast SEO",
-            "ver": "7.6.1",
-            "type": "SEO"
+            "app": "Vue.js",
+            "ver": null,
+            "type": "JavaScript Frameworks"
         },
         {
-            "app": "YouTube",
+            "app": "WP Rocket",
             "ver": null,
-            "type": "Video Players"
+            "type": "Cache Tools"
         },
         {
-            "app": "MySQL",
+            "app": "ZURB Foundation",
             "ver": null,
-            "type": "Databases"
+            "type": "UI Frameworks"
         },
         {
             "app": "PHP",
             "ver": null,
             "type": "Programming Languages"
+        },
+        {
+            "app": "MySQL",
+            "ver": null,
+            "type": "Databases"
         }
     ]
 }

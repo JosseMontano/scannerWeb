@@ -1,6 +1,6 @@
 <script lang="ts">
   import Loader from "../../global/loader.svelte";
-  import { PostData, PostFormData } from "../../utilities/fetch";
+  import { PostFormData } from "../../utilities/fetch";
 
   let file = null;
 
