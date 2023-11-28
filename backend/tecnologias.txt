@@ -61,14 +61,14 @@
             "type": "Video Players"
         },
         {
-            "app": "PHP",
-            "ver": null,
-            "type": "Programming Languages"
-        },
-        {
             "app": "MySQL",
             "ver": null,
             "type": "Databases"
+        },
+        {
+            "app": "PHP",
+            "ver": null,
+            "type": "Programming Languages"
         }
     ]
 }

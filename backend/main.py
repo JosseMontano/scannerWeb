@@ -62,7 +62,7 @@ def ScannerNmap():
     new_resource = request.get_json()
     ip = new_resource["ip"]
     msg, nameFile = nmap(ip)
-    return jsonify({"msg":msg, "nameFile":nameFile}), 200
+    return jsonify({"data":msg, "nameFile":nameFile}), 200
    
 
 @app.route("/api/downloadScanner", methods=["POST"])

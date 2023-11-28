@@ -7,6 +7,8 @@
   import TechnologiesImg from "./assets/technologies.jpg";
   import ScannerPortImg from "./assets/scannerPorts.jpg";
   import NmapImg from "./assets/nmap.jpg";
+  import PasswordImg from "./assets/password.jpg";
+
   import type { cardsType, titleCards } from "./types/cards";
 
   // ======== COMPONENTS ========
@@ -16,6 +18,8 @@
   import BannerContent from "./components/contentModal/banner.svelte";
   import TechnologiesContent from "./components/contentModal/technologies.svelte";
   import ScannerPortsContent from "./components/contentModal/scannerPort.svelte";
+  import ScannVuln from "./components/contentModal/ScannVuln.svelte";
+  import Password from "./components/contentModal/password.svelte";
 
   // ======== DATA CARDS ========
   const cards: cardsType[] = [
@@ -49,6 +53,12 @@
       description:
         "Detectar y corregir vulnerabilidades en los puertos es crucial para fortalecer la seguridad y prevenir ataques.",
     },
+    {
+      img: PasswordImg,
+      title: "Fuerza bruta",
+      description:
+        "Forma de recuperar una clave probando todas las combinaciones posibles hasta encontrar aquella que permite el acceso",
+    },
   ];
 
   // ======== MODAL ========
@@ -63,6 +73,8 @@
     if (v == "Banner Grabbing") contentModal = BannerContent;
     if (v == "Herramientas") contentModal = TechnologiesContent;
     if (v == "Puertos abiertos") contentModal = ScannerPortsContent;
+    if (v == "Escanear vulnerabilidades") contentModal = ScannVuln;
+    if (v == "Fuerza bruta") contentModal = Password;
   }
 </script>
 

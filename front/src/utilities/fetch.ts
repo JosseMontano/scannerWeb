@@ -13,7 +13,7 @@ export async function fetchData(url: string) {
   }
 }
 
-export async function PostData(url: string, data: any) {
+export async function PostData(url: string, data: any, all?: boolean) {
   try {
     let response = await fetch(config.endpoint + url, {
       method: "POST",
@@ -25,9 +25,34 @@ export async function PostData(url: string, data: any) {
 
     if (response.ok) {
       // Manejar la respuesta exitosa aquí
-      response = await response.json()
-      const {data} = response as any
+      response = await response.json();
+      const { data } = response as any;
+
+      if (all) {
+        return response;
+      }
       return data;
+    } else {
+      // Manejar errores de respuesta aquí
+      console.error("Error en la solicitud POST");
+    }
+  } catch (error) {
+    // Manejar errores de red u otros errores aquí
+    console.error("Error en la solicitud POST:", error);
+  }
+}
+
+export async function PostFormData(url: string, data: any){
+  try {
+    let response = await fetch(config.endpoint + url, {
+      method: "POST",
+      body: data,
+    });
+
+    if (response.ok) {
+      // Manejar la respuesta exitosa aquí
+      response = await response.json();
+      return response;
     } else {
       // Manejar errores de respuesta aquí
       console.error("Error en la solicitud POST");
