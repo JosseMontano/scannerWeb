@@ -1,15 +1,26 @@
 import subprocess
 import openai
+from config import tokenOpenAi
 
-openai.api_key = "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"
+
+#random name
+import random
+import string
+
+def get_random_string(length):
+    # With combination of lower and upper case
+    result_str = ''.join(random.choice(string.ascii_letters) for i in range(length))
+    # print random string
+    return result_str
+
+
+
+openai.api_key = tokenOpenAi
 
 
 def parser(nmap_query, ip):
-    print("-" * 50)
-    print(ip)
-
     # Ejecuta el comando y captura la salida
-    result = subprocess.run(nmap_query, shell=True, stdout=subprocess.PIPE, text=True)
+    result = subprocess.run(nmap_query, shell=True, stdout=subprocess.PIPE, text=True)  
     output = result.stdout
 
     response = openai.ChatCompletion.create(
@@ -23,15 +34,16 @@ def parser(nmap_query, ip):
         ],
     )
 
-    print(response.choices[0].message.content)
-
-    with open("readme3.txt", "w") as f:
+    nameFile = get_random_string(8);
+    nameFile = nameFile + ".txt"
+    with open(nameFile, "w") as f:
         f.write(output)
 
+    return response.choices[0].message.content, nameFile
 
-def namp():
-    # nmap -sV --script nmap-vulners <IP> -p22,80,3306
-    target = "200.80.43.108"
-    mode = " --top-ports 100 --script vuln -sV"  #
-    consulta = "nmap " + target + mode
-    parser(consulta, target)
+
+def nmap(ip):
+    mode = " --top-ports 100 --script vuln -sV"  
+    consulta = "nmap " + ip + mode
+    msg, nameFile = parser(consulta, ip)
+    return msg, nameFile
