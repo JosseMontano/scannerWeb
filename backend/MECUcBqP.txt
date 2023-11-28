@@ -1,0 +1,51 @@
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-11-27 23:05 Hora estándar de Venezuela
+Pre-scan script results:
+| broadcast-avahi-dos: 
+|   Discovered hosts:
+|     224.0.0.251
+|   After NULL UDP avahi packet DoS (CVE-2011-1002).
+|_  Hosts are all up (not vulnerable).
+Nmap scan report for 45.79.163.254
+Host is up (0.24s latency).
+Not shown: 97 closed tcp ports (reset)
+PORT    STATE SERVICE  VERSION
+22/tcp  open  ssh      OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.10 (Ubuntu Linux; protocol 2.0)
+| vulners: 
+|   cpe:/a:openbsd:openssh:6.6.1p1: 
+|     	PRION:CVE-2015-5600	8.5	https://vulners.com/prion/PRION:CVE-2015-5600
+|     	CVE-2015-5600	8.5	https://vulners.com/cve/CVE-2015-5600
+|     	PRION:CVE-2020-16088	7.5	https://vulners.com/prion/PRION:CVE-2020-16088
+|     	PRION:CVE-2015-6564	6.9	https://vulners.com/prion/PRION:CVE-2015-6564
+|     	CVE-2015-6564	6.9	https://vulners.com/cve/CVE-2015-6564
+|     	CVE-2018-15919	5.0	https://vulners.com/cve/CVE-2018-15919
+|     	PRION:CVE-2015-5352	4.3	https://vulners.com/prion/PRION:CVE-2015-5352
+|     	CVE-2020-14145	4.3	https://vulners.com/cve/CVE-2020-14145
+|     	CVE-2015-5352	4.3	https://vulners.com/cve/CVE-2015-5352
+|     	PRION:CVE-2015-6563	1.9	https://vulners.com/prion/PRION:CVE-2015-6563
+|_    	CVE-2015-6563	1.9	https://vulners.com/cve/CVE-2015-6563
+80/tcp  open  http     nginx
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-server-header: nginx/1.4.6 (Ubuntu)
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+443/tcp open  ssl/http nginx
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+| http-vuln-cve2011-3192: 
+|   VULNERABLE:
+|   Apache byterange filter DoS
+|     State: VULNERABLE
+|     IDs:  BID:49303  CVE:CVE-2011-3192
+|       The Apache web server is vulnerable to a denial of service attack when numerous
+|       overlapping byte ranges are requested.
+|     Disclosure date: 2011-08-19
+|     References:
+|       https://www.tenable.com/plugins/nessus/55976
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3192
+|       https://www.securityfocus.com/bid/49303
+|_      https://seclists.org/fulldisclosure/2011/Aug/175
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 152.79 seconds
